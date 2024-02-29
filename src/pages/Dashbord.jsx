@@ -55,23 +55,29 @@ function Dashbord() {
 
     return (
         <div className='contenu'>
+            <div className="profil">
+                <div className="photo"></div>
+                {
+                    data.map((item, i) => {
+                        return (
+                            <div key={i}>
+                                <h2>{item.nom}</h2>
+                                <h3>Email : {item.email}</h3>
+                                <p>Telephone : {item.tel}</p>
+                            </div>
+                        )
+                    })
+                }
+                <br />
+                <br />
+                <button className='deconnect'  onClick={logout}>Deconnecter</button>
+            </div>
             <h1>Welcome @city</h1>
-            {
-                data.map((item, i) => {
-                    return (
-                        <div key={i}>
-                            <h1>{item.nom}</h1>
-                        </div>
-                    )
-                })
-            }
+
             <br />
             <br />
             <br />
             <button onClick={verifyAuth}>Vérifier l'authentification</button>
-            <br />
-            <br />
-            <button className='logout' onClick={logout}>Se déconnecter</button>
         </div>
     )
 }
